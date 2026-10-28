@@ -10,7 +10,7 @@ namespace NeonRush
     {
         [Header("Target")]
         [Tooltip("Transform of the car to follow.")]
-        [SerializeField] private Transform target;
+        public Transform target;
 
         [Header("Follow Offsets")]
         [Tooltip("Distance behind the car.")]

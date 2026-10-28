@@ -18,7 +18,7 @@ namespace NeonRush.Editor
         private const string GreenCarModelPath = "Assets/Models/RacingCar_Green.fbx";
         private const string PhysicMatPath = "Assets/Materials/CarFrictionless.physicMaterial";
 
-        [MenuItem("Neon Rush/Setup Racing Scene", priority = 10)]
+        [MenuItem("Neon Rush/Setup Racing Scene", false, 10)]
         public static void BuildScene()
         {
             Debug.Log("[NeonRush] Building Complete Neon Rush Grand Prix Racing Scene...");

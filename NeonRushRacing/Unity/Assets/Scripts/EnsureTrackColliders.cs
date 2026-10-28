@@ -146,10 +146,12 @@ namespace NeonRush
             }
 
             // Remove any other duplicate cars that are not this player car
-            GameObject[] allCars = GameObject.FindObjectsByType<GameObject>(FindObjectsSortMode.None);
-            foreach (var go in allCars)
+            Transform[] allTransforms = Object.FindObjectsByType<Transform>(FindObjectsSortMode.None);
+            foreach (var t in allTransforms)
             {
-                if (go != car && go.transform.parent == null)
+                if (t == null) continue;
+                GameObject go = t.gameObject;
+                if (go != car && t.parent == null)
                 {
                     string n = go.name.ToLower();
                     if ((n.Contains("racingcar (") || n.Contains("racingcar(1)") || n.Contains("racingcar(2)")) && !n.Contains("cyan") && !n.Contains("gold") && !n.Contains("green"))
