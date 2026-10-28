@@ -82,16 +82,16 @@ namespace NeonRush.Editor
             RenderSettings.fogDensity = 0.002f;
 
             // 3. Load or create frictionless physic material
-            PhysicMaterial frictionMat = AssetDatabase.LoadAssetAtPath<PhysicMaterial>(PhysicMatPath);
+            PhysicsMaterial frictionMat = AssetDatabase.LoadAssetAtPath<PhysicsMaterial>(PhysicMatPath);
             if (frictionMat == null)
             {
-                frictionMat = new PhysicMaterial("CarFrictionless")
+                frictionMat = new PhysicsMaterial("CarFrictionless")
                 {
                     dynamicFriction = 0f,
                     staticFriction = 0f,
-                    frictionCombine = PhysicMaterialCombine.Minimum,
+                    frictionCombine = PhysicsMaterialCombine.Minimum,
                     bounciness = 0f,
-                    bounceCombine = PhysicMaterialCombine.Minimum
+                    bounceCombine = PhysicsMaterialCombine.Minimum
                 };
                 AssetDatabase.CreateAsset(frictionMat, PhysicMatPath);
             }

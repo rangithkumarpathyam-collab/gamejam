@@ -153,8 +153,39 @@ namespace NeonRush
             SetupRigidbody();
             currentBoost = maxBoostCapacity;
 
+            SanitizeWheels();
+
             lastSafePosition = transform.position;
             lastSafeRotation = transform.rotation;
+        }
+
+        public void SanitizeWheels()
+        {
+            // Helper to check if a transform is actually a wheel or an invalid body part (doors, axles, etc.)
+            bool IsInvalidWheel(Transform t)
+            {
+                if (t == null) return false;
+                string n = t.name.ToLower();
+                return n.Contains("door") || n.Contains("handle") || n.Contains("mirror") ||
+                       n.Contains("axle") || n.Contains("panel") || n.Contains("hood") ||
+                       n.Contains("interior") || n.Contains("windshield") || n.Contains("pillar");
+            }
+
+            if (IsInvalidWheel(frontLeftWheel)) frontLeftWheel = null;
+            if (IsInvalidWheel(frontRightWheel)) frontRightWheel = null;
+            if (IsInvalidWheel(rearLeftWheel)) rearLeftWheel = null;
+            if (IsInvalidWheel(rearRightWheel)) rearRightWheel = null;
+
+            // Auto-discover genuine wheel transforms if missing
+            Transform[] children = GetComponentsInChildren<Transform>(true);
+            foreach (var c in children)
+            {
+                string n = c.name.ToLower();
+                if (n == "wheel_fl" || n == "wheelfrontl" || n == "proto_wheel_fl") frontLeftWheel = c;
+                else if (n == "wheel_fr" || n == "wheelfrontr" || n == "proto_wheel_fr") frontRightWheel = c;
+                else if (n == "wheel_rl" || n == "wheelrearl" || n == "proto_wheel_rl") rearLeftWheel = c;
+                else if (n == "wheel_rr" || n == "wheelrearr" || n == "proto_wheel_rr") rearRightWheel = c;
+            }
 
             if (frontLeftWheel != null) baseFLRot = frontLeftWheel.localRotation;
             if (frontRightWheel != null) baseFRRot = frontRightWheel.localRotation;
@@ -473,10 +504,10 @@ namespace NeonRush
 
         public void RespawnAtSafePosition()
         {
-            if (lastSafePosition == Vector3.zero)
+            if (lastSafePosition == Vector3.zero || lastSafePosition.y < -1f)
             {
-                lastSafePosition = transform.position + Vector3.up * 1f;
-                lastSafeRotation = Quaternion.Euler(0f, transform.eulerAngles.y, 0f);
+                lastSafePosition = new Vector3(-75f, 0.35f, -90f);
+                lastSafeRotation = Quaternion.Euler(0f, 90f, 0f);
             }
 
             transform.position = lastSafePosition + Vector3.up * 0.8f;
