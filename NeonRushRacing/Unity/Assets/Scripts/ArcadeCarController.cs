@@ -146,6 +146,7 @@ namespace NeonRush
         public bool IsGrounded => isGrounded;
         public bool IsBraking { get; private set; }
         public bool IsReversing { get; private set; }
+        public bool ControlsEnabled { get; set; } = true;
 
         private void Awake()
         {
@@ -248,6 +249,14 @@ namespace NeonRush
 
         private void ReadInput()
         {
+            if (!ControlsEnabled)
+            {
+                moveInput = 0f;
+                steerInput = 0f;
+                handbrakeInput = true;
+                return;
+            }
+
             float v = 0f;
             float h = 0f;
 
