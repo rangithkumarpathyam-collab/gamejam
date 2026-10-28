@@ -230,11 +230,14 @@ namespace NeonRush
             }
 
             // Draw track waypoints as dot loop
-            GUI.color = new Color(0.35f, 0.45f, 0.65f, 0.6f);
-            for (int i = 0; i < TrackWaypoints.Count; i += 3)
+            if (TrackWaypoints.Points != null && TrackWaypoints.Points.Length > 0)
             {
-                Vector2 pt = WorldToMap(TrackWaypoints.Points[i]);
-                GUI.DrawTexture(new Rect(pt.x - 1, pt.y - 1, 3, 3), solidWhiteTex);
+                GUI.color = new Color(0.35f, 0.45f, 0.65f, 0.6f);
+                for (int i = 0; i < TrackWaypoints.Points.Length; i += 3)
+                {
+                    Vector2 pt = WorldToMap(TrackWaypoints.Points[i]);
+                    GUI.DrawTexture(new Rect(pt.x - 1, pt.y - 1, 3, 3), solidWhiteTex);
+                }
             }
 
             // Draw Rival AI blips
