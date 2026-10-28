@@ -218,9 +218,9 @@ namespace NeonRush
             Rect mapRect = new Rect(sw - 165, 20, 145, 145);
             GUI.DrawTexture(mapRect, bgBoxTex);
 
-            // Radar Map bounds (NeonRushTrack is approx X: [-170, 170], Z: [-100, 120])
+            // Radar Map bounds (NeonRushTrack is approx X: [-170, 170], Z: [-115, 95])
             float minX = -175f, maxX = 175f;
-            float minZ = -105f, maxZ = 125f;
+            float minZ = -125f, maxZ = 105f;
 
             Vector2 WorldToMap(Vector3 worldPos)
             {

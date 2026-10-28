@@ -52,6 +52,7 @@ namespace NeonRush
         {
             rb = GetComponent<Rigidbody>();
             rb.mass = 1200f;
+            rb.centerOfMass = new Vector3(0f, -0.4f, 0f);
             rb.linearDamping = 0.05f;
             rb.angularDamping = 2.0f;
             rb.interpolation = RigidbodyInterpolation.Interpolate;
@@ -209,7 +210,7 @@ namespace NeonRush
             // Upright stabilization
             Vector3 predictedUp = Quaternion.AngleAxis(rb.angularVelocity.magnitude * Mathf.Rad2Deg * 0.1f / 10f, rb.angularVelocity) * transform.up;
             Vector3 torque = Vector3.Cross(predictedUp, Vector3.up);
-            rb.AddTorque(torque * 25f, ForceMode.Acceleration);
+            rb.AddTorque(torque * 75f, ForceMode.Acceleration);
         }
 
         private void CheckOutOfBounds()

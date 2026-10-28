@@ -129,16 +129,16 @@ namespace NeonRush
         private void SetupStartingGrid()
         {
             // Grid Slots:
-            // Slot 1 (Player):   (-75.0, 0.35, -90.0)
-            // Slot 2 (AI 1):     (-75.0, 0.35, -86.2)
-            // Slot 3 (AI 2):     (-82.0, 0.35, -90.0)
-            // Slot 4 (AI 3):     (-82.0, 0.35, -86.2)
+            // Slot 1 (Player):   (-75.0, 0.35, 90.0)
+            // Slot 2 (AI 1):     (-75.0, 0.35, 86.2)
+            // Slot 3 (AI 2):     (-82.0, 0.35, 90.0)
+            // Slot 4 (AI 3):     (-82.0, 0.35, 86.2)
             Vector3[] gridPositions = new Vector3[]
             {
-                new Vector3(-75.0f, 0.35f, -90.0f),
-                new Vector3(-75.0f, 0.35f, -86.2f),
-                new Vector3(-82.0f, 0.35f, -90.0f),
-                new Vector3(-82.0f, 0.35f, -86.2f)
+                new Vector3(-75.0f, 0.35f, 90.0f),
+                new Vector3(-75.0f, 0.35f, 86.2f),
+                new Vector3(-82.0f, 0.35f, 90.0f),
+                new Vector3(-82.0f, 0.35f, 86.2f)
             };
             Quaternion gridRot = Quaternion.Euler(0f, 90f, 0f);
 

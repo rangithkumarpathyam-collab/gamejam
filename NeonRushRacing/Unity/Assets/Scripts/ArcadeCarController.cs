@@ -83,11 +83,11 @@ namespace NeonRush
         [SerializeField] private float boostRechargeDelay = 0.6f;
 
         [Header("Stability & Ground Check")]
-        [Tooltip("Center of mass offset relative to transform position. Keep slightly above floor for stability.")]
-        [SerializeField] private Vector3 centerOfMassOffset = new Vector3(0f, 0.15f, 0f);
+        [Tooltip("Center of mass offset relative to transform position. Keep slightly below floor for extreme stability.")]
+        [SerializeField] private Vector3 centerOfMassOffset = new Vector3(0f, -0.4f, 0f);
 
         [Tooltip("Torque applied to keep the vehicle upright when tilted sideways.")]
-        [SerializeField] private float uprightStabilityForce = 30f;
+        [SerializeField] private float uprightStabilityForce = 85f;
 
         [Tooltip("Damping applied to roll and pitch angular velocities.")]
         [SerializeField] private float rollPitchDamping = 16f;

@@ -74,10 +74,10 @@ namespace NeonRush.Editor
             // 4. Starting Grid Coordinates
             Vector3[] gridPositions = new Vector3[]
             {
-                new Vector3(-75.0f, 0.35f, -90.0f), // Slot 1: Player
-                new Vector3(-75.0f, 0.35f, -86.2f), // Slot 2: AI Cyan Viper
-                new Vector3(-82.0f, 0.35f, -90.0f), // Slot 3: AI Golden Phoenix
-                new Vector3(-82.0f, 0.35f, -86.2f)  // Slot 4: AI Neon Emerald
+                new Vector3(-75.0f, 0.35f, 90.0f),  // Slot 1: Player
+                new Vector3(-75.0f, 0.35f, 86.2f),  // Slot 2: AI Cyan Viper
+                new Vector3(-82.0f, 0.35f, 90.0f),  // Slot 3: AI Golden Phoenix
+                new Vector3(-82.0f, 0.35f, 86.2f)   // Slot 4: AI Neon Emerald
             };
             Quaternion gridRot = Quaternion.Euler(0f, 90f, 0f);
 
@@ -133,7 +133,7 @@ namespace NeonRush.Editor
             Camera cam = camObj.AddComponent<Camera>();
             camObj.AddComponent<AudioListener>();
 
-            camObj.transform.position = new Vector3(-82.0f, 3.2f, -90.0f);
+            camObj.transform.position = new Vector3(-82.0f, 3.2f, 90.0f);
             camObj.transform.rotation = Quaternion.Euler(12f, 90f, 0f);
             cam.fieldOfView = 60f;
             cam.nearClipPlane = 0.3f;

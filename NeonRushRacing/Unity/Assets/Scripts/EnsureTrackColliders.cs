@@ -221,7 +221,7 @@ namespace NeonRush
             if (audio == null) audio = car.AddComponent<CarAudio>();
 
             // Snap to Grid Slot 1
-            Vector3 startPos = new Vector3(-75.0f, 0.35f, -90.0f);
+            Vector3 startPos = new Vector3(-75.0f, 0.35f, 90.0f);
             Quaternion startRot = Quaternion.Euler(0f, 90f, 0f);
             car.transform.position = startPos;
             car.transform.rotation = startRot;
@@ -279,9 +279,9 @@ namespace NeonRush
             string[] modelPaths = new string[] { "Assets/Models/RacingCar_Cyan.fbx", "Assets/Models/RacingCar_Gold.fbx", "Assets/Models/RacingCar_Green.fbx" };
             Vector3[] aiSlotPositions = new Vector3[]
             {
-                new Vector3(-75.0f, 0.35f, -86.2f),
-                new Vector3(-82.0f, 0.35f, -90.0f),
-                new Vector3(-82.0f, 0.35f, -86.2f)
+                new Vector3(-75.0f, 0.35f, 86.2f),
+                new Vector3(-82.0f, 0.35f, 90.0f),
+                new Vector3(-82.0f, 0.35f, 86.2f)
             };
             Quaternion gridRot = Quaternion.Euler(0f, 90f, 0f);
 
